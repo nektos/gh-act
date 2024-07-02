@@ -5,7 +5,7 @@ on:
       - v*
 
 env:
-  GO_VERSION: "1.20"
+  GO_VERSION: "1.21"
 
 permissions:
   contents: write
@@ -35,6 +35,8 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
+      # Needed by cli/gh-extension-precompile
+      - run: apt-get update && apt-get install -y g++-x86-64-linux-gnu libc6-dev-amd64-cross
       - uses: cli/gh-extension-precompile@v1
         with:
           go_version: ${{ env.GO_VERSION }}
