@@ -1,4 +1,4 @@
-![act-logo](https://github.com/nektos/act/wiki/img/logo-150.png)
+![act-logo](https://raw.githubusercontent.com/wiki/nektos/act/img/logo-150.png)
 # Overview
 
 [GitHub CLI](https://docs.github.com/en/github-cli/github-cli/about-github-cli) Extension for [nektos/act](https://github.com/nektos/act) which allows you to run your [GitHub Actions](https://developer.github.com/actions/) locally!
