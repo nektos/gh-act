@@ -24,7 +24,7 @@ jobs:
           fetch-depth: 0
       - run: rm -rf act/.git
       - run: mv act/* .
-      - uses: actions/setup-go@v4
+      - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
           check-latest: true
