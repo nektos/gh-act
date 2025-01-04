@@ -15,8 +15,8 @@ jobs:
     name: release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           repository: nektos/act
           path: act
@@ -24,11 +24,11 @@ jobs:
           fetch-depth: 0
       - run: rm -rf act/.git
       - run: mv act/* .
-      - uses: actions/setup-go@v4
+      - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
           check-latest: true
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         if: ${{ !env.ACT }}
         with:
           path: ~/go/pkg/mod
