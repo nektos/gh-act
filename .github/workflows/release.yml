@@ -4,9 +4,6 @@ on:
     tags:
       - v*
 
-env:
-  GO_VERSION: "1.21"
-
 permissions:
   contents: write
 
@@ -25,6 +22,7 @@ jobs:
       - run: rm -rf act/.git
       - run: mv act/* .
       - uses: actions/setup-go@v5
+        id: setup-go
         with:
           go-version-file: go.mod
           check-latest: true
@@ -37,4 +35,4 @@ jobs:
             ${{ runner.os }}-go-
       - uses: cli/gh-extension-precompile@v2
         with:
-          go_version: ${{ env.GO_VERSION }}
+          go_version: ${{ steps.setup-go.outputs.go-version }}
